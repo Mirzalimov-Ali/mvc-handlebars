@@ -1,0 +1,31 @@
+<main>
+  <h1>User List:</h1>
+  <div style="display: grid; grid-template-areas: 'a a a'; gap:20px">
+    {{#if users}}
+      {{#each users}}
+        <div class="card">
+          <div
+            style="background-color: #f2f2f2; padding: 20px; text-align: center;"
+          >
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/015/278/806/original/the-avatar-of-the-graduate-student-icon-illustration-in-a-flat-style-isolated-on-a-white-background-vector.jpg"
+              alt="Avatar"
+              style="width: 100px; border-radius: 50%;"
+            />
+            <div style="margin-top: 10px;">
+              <h4 style="margin: 0; color: #333;"><b>Name: {{username}}</b></h4>
+              <p style="margin: 15px 0; color: #666;">Age: {{age}}</p>
+              <a
+                href="/{{uid}}"
+                style="text-decoration: none; background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px;"
+              >More info...</a>
+            </div>
+          </div>
+        </div>
+
+      {{/each}}
+    {{else}}
+      <p>Users is not defined</p>
+    {{/if}}
+  </div>
+</main>
