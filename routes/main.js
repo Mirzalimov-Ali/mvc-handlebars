@@ -3,8 +3,12 @@ const router = Router()
 const path = require('path')
 
 const { users } = require('./users')
-const { getMain } = require('../controllers/main.controller')
+const { getMain, getAbout } = require('../controllers/main.controller')
 
+// users page
 router.get('/', getMain)
+
+// detail page
+router.get("/users/detail/:uid", getAbout)
 
 module.exports = router

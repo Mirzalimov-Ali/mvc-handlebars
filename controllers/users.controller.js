@@ -10,7 +10,12 @@ const getAddNewUser = (req, res) => {
 const addNewUser = (req, res) => {
     const uid = uuid.v4()
     const users = new User(uid, req.body.username, req.body.age)
-    users.save()
+    if(!req.body.username && !req.body.age === "") {
+        users.save()
+    }
+    if(req.body.age < 100) {
+        users.save()
+    }
     res.redirect("/")
 }
 

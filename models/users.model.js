@@ -18,7 +18,7 @@ module.exports = class User {
 
             users = JSON.parse(data)
             console.log(users)
-            users.push({uid: this.uid, username: this.username, age: this.age})
+            users.unshift({uid: this.uid, username: this.username, age: this.age})
             fs.writeFile(pathFile, JSON.stringify(users), (err) => {
                 if(err) throw err
                 console.log(`ok`)

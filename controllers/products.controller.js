@@ -5,11 +5,11 @@ const getAddProduct = (req, res) => {
     res.render("add-products")
 }
 
-const addProducts = (req, res) => {
-    const uid = uuid.v4()
-    const products = new Product(uid, req.body.product_name)
-    products.save()
+const addProduct = (req, res) => {
+    const uid = uuid.v4() 
+    const product = new Product(uid, req.body.product_name)
+    product.save()
     res.redirect("/products")
 }
 
-module.exports = {getAddProduct, addProducts}
+module.exports = {getAddProduct, addProduct}

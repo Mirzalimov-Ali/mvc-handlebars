@@ -15,23 +15,20 @@ app.use(express.static(path.join(__dirname, "public")));
 const userRoutes = require("./routes/users");
 const mainRoutes = require("./routes/main");
 
-const mainProducts = require("./routes/mainProducts")
-const products = require("./routes/products")
-
 // users
 app.use(mainRoutes);
 app.use("/users", userRoutes.router);
 
 // products
-app.use("/products", mainProducts)
-app.use("/products", products)
+app.use("/products", require("./routes/mainProducts"))
+app.use("/products", require("./routes/products"))
 
-app.use((req, res, next) => {
+app.use((req, res, next) => {  
   res.status(404).render("404", { title: "Page not found" });
 }); 
 
 const PORT = process.env.PORT || 5050;
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT} `);
+  console.log(`Server running on http://localhost:${PORT}`);
 });

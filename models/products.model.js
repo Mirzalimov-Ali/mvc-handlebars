@@ -18,7 +18,6 @@ module.exports = class Product {
             products = JSON.parse(data)
             console.log(products)
             products.unshift({uid: this.uid, productName: this.productName})
-
             fs.writeFile(pathFile, JSON.stringify(products), (err) => {
                 if(err) throw err
                 console.log(`success`)
